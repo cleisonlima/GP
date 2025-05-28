@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Vagas Inclusivas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #f0f2f5, #e4f0ec);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .form-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #00796b;
+    }
+    .form-label {
+      font-weight: 600;
+    }
+    .btn-custom {
+      background-color: #00796b;
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+    <header class="bg-light shadow-sm">
+      <nav class="navbar navbar-expand-lg container">
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.png" alt="Logo do projeto" height="50" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="Cadastro.html">Cadastro</a></li>
+            <li class="nav-item"><a class="nav-link" href="Fale Conosco.html">Fale Conosco</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+  <div class="container mt-5 mb-5">
+    <div class="form-container">
+      <h1 class="text-center mb-4">Cadastro de Vagas Inclusivas para PCDs</h1>
+
+      <form id="cadastroForm">
+        <h5 class="mb-3">Informações da Empresa</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="empresa" class="form-label">Nome da Empresa</label>
+            <input type="text" class="form-control" id="empresa" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cnpj" class="form-label">CNPJ</label>
+            <input type="text" class="form-control" id="cnpj" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="responsavel" class="form-label">Responsável pelo RH</label>
+            <input type="text" class="form-control" id="responsavel" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+        </div>
+
+        <h5 class="mt-4 mb-3">Descrição da Vaga</h5>
+        <div class="mb-3">
+          <label for="tituloVaga" class="form-label">Título da Vaga</label>
+          <input type="text" class="form-control" id="tituloVaga" required>
+        </div>
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição da Função</label>
+          <textarea class="form-control" id="descricao" rows="4" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tipo de Deficiência Compatível</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Física" id="fisica">
+            <label class="form-check-label" for="fisica">Física</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Visual" id="visual">
+            <label class="form-check-label" for="visual">Visual</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Auditiva" id="auditiva">
+            <label class="form-check-label" for="auditiva">Auditiva</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Intelectual" id="intelectual">
+            <label class="form-check-label" for="intelectual">Intelectual</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="Psicossocial" id="psicossocial">
+            <label class="form-check-label" for="psicossocial">Psicossocial</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="acessibilidade" class="form-label">Necessidades de Acessibilidade Oferecidas</label>
+          <textarea class="form-control" id="acessibilidade" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="modalidade" class="form-label">Modalidade</label>
+          <select class="form-select" id="modalidade" required>
+            <option value="">Selecione</option>
+            <option value="Presencial">Presencial</option>
+            <option value="Remoto">Remoto</option>
+            <option value="Híbrido">Híbrido</option>
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-custom px-4">Cadastrar Vaga</button>
+        </div>
+      </form>
+
+      <div id="mensagemSucesso" class="alert alert-success mt-4 d-none text-center" role="alert">
+        ✅ Vaga cadastrada com sucesso!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('mensagemSucesso').classList.remove('d-none');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

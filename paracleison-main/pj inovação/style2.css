@@ -1,0 +1,33 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #fce4ec, #f8bbd0);
+    color: #333;
+  }
+  
+  header {
+    background-color: #fff0f5;
+  }
+  
+  .navbar-brand img {
+    height: 50px;
+  }
+  
+  .item {
+    padding: 2rem;
+    background-color: #ffffffdd;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  button {
+    border-radius: 30px;
+  }
+  
+  section.form-section {
+    background-color: #fff0f5;
+    padding: 3rem 1rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+  }
+  
